@@ -12,14 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_voyager.mk \
-    $(LOCAL_DIR)/lineage_voyager_DSDS.mk
+# Inherit device parts
+$(call inherit-product, device/sony/voyager/aosp_h3413.mk)
 
-COMMON_LUNCH_CHOICES += \
-    lineage_voyager-eng \
-    lineage_voyager-userdebug \
-    lineage_voyager-user \
-    lineage_voyager_DSDS-eng \
-    lineage_voyager_DSDS-userdebug \
-    lineage_voyager_DSDS-user
+# Override Product Name
+PRODUCT_NAME := lineage_voyager
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := voyager
